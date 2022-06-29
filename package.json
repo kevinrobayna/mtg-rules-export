@@ -1,7 +1,7 @@
 {
   "name": "javascript-action",
   "version": "1.0.0",
-  "description": "JavaScript Action Template",
+  "description": "Github Action to export the rules from the website of the game Magic: The Gathering",
   "main": "index.js",
   "scripts": {
     "lint": "eslint .",
@@ -11,19 +11,19 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/actions/javascript-action.git"
+    "url": "git@github.com:kevinrobayna/mtg-rules-export.git"
   },
   "keywords": [
     "GitHub",
     "Actions",
     "JavaScript"
   ],
-  "author": "",
+  "author": "Kevin Robayna",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/actions/javascript-action/issues"
+    "url": "https://github.com/kevinrobayna/mtg-rules-export/issues"
   },
-  "homepage": "https://github.com/actions/javascript-action#readme",
+  "homepage": "https://github.com/kevinrobayna/mtg-rules-export#readme",
   "dependencies": {
     "@actions/core": "^1.2.5",
     "cheerio": "^1.0.0-rc.12",
