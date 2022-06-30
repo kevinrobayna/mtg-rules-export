@@ -1,4 +1,4 @@
-name: "units-test"
+name: "ci"
 on:
   pull_request:
   push:
@@ -7,7 +7,7 @@ on:
       - 'releases/*'
 
 jobs:
-  ci:
+  units-test:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository code
