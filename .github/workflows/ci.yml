@@ -1,0 +1,24 @@
+name: "ci"
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+      - 'releases/*'
+
+jobs:
+  units-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v3
+      - name: Install Dependencies
+        run: npm ci
+      - name: Run tests
+        run: npm test
+      - name: Generate distributed action
+        run: npm run compile
+      - name: Test generated action
+        uses: ./
+        with:
+          milliseconds: 1000
