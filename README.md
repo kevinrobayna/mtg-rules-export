@@ -1,7 +1,7 @@
 # Create a JavaScript Action
 
 <p align="center">
-  <a href="https://github.com/kevinrobayna/mtg-rules-export/actions"><img alt="CI status" src="https://github.com/kevinrobayna/mtg-rules-export/workflows/ci/badge.svg"></a>
+  <a href="https://github.com/kevinrobayna/mtg-rules-export/actions?branch=main"><img alt="CI status" src="https://github.com/kevinrobayna/mtg-rules-export/workflows/ci/badge.svg?branch=main"></a>
   <a href='https://coveralls.io/github/kevinrobayna/mtg-rules-export?branch=main'><img src='https://coveralls.io/repos/github/kevinrobayna/mtg-rules-export/badge.svg?branch=main' alt='Coverage Status' /></a>
 </p>
 
