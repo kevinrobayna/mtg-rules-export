@@ -2,6 +2,7 @@
 
 <p align="center">
   <a href="https://github.com/actions/javascript-action/actions"><img alt="javscript-action status" src="https://github.com/actions/javascript-action/workflows/units-test/badge.svg"></a>
+  <a href='https://coveralls.io/github/kevinrobayna/mtg-rules-export?branch=main'><img src='https://coveralls.io/repos/github/kevinrobayna/mtg-rules-export/badge.svg?branch=main' alt='Coverage Status' /></a>
 </p>
 
 Use this template to bootstrap the creation of a JavaScript action.:rocket:
