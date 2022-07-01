@@ -7,6 +7,7 @@
     "lint": "eslint .",
     "compile": "ncc build src/index.js -o dist --source-map --license licenses.txt",
     "test": "jest src",
+    "coveralls": "cat ./coverage/lcov.info | node node_modules/.bin/coveralls",
     "all": "npm run lint && npm run test"
   },
   "repository": {
@@ -32,6 +33,7 @@
   },
   "devDependencies": {
     "@vercel/ncc": "^0.34.0",
+    "coveralls": "^3.1.1",
     "eslint": "^8.18.0",
     "jest": "^28.1.1"
   }
