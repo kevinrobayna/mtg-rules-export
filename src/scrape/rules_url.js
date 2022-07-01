@@ -13,6 +13,9 @@ let getRulesUrl = async function getRulesUrl() {
     .map((anchor) => {
       return anchor.attribs["href"];
     })
+    .map((link) => {
+      return link.replaceAll(' ', '%20');
+    })
     .find((link) => {
       return link.endsWith(".txt");
     });
