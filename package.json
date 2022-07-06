@@ -2,7 +2,7 @@
   "name": "javascript-action",
   "version": "1.0.0",
   "description": "Github Action to export the rules from the website of the game Magic: The Gathering",
-  "main": "src/index.ts",
+  "main": "lib/main.js",
   "scripts": {
     "build": "tsc",
     "format": "prettier --write '**/*.ts'",
