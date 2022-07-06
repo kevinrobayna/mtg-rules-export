@@ -20,7 +20,9 @@ jobs:
         with:
           node-version: ${{ matrix.node }}
       - run: npm ci
+      - run: npm run format-check
       - run: npm run lint
+      - run: npm run build
       - run: npm run test -- --coverage
       - name: Coveralls ${{ matrix.node }}
         uses: coverallsapp/github-action@master
@@ -48,8 +50,8 @@ jobs:
         with:
           node-version: 16.x
       - run: npm ci
-      - name: Compile action
-        run: npm run compile
+      - run: npm run build
+      - run: npm run package
       - name: Run action
         uses: ./
         with:
