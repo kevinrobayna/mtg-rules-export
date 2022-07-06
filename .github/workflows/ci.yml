@@ -1,41 +1,56 @@
 name: "ci"
+
 on:
-  pull_request:
   push:
-    branches:
-      - main
-      - 'releases/*'
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
 
 jobs:
   units-test:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node: [16, 18]
+    name: Node ${{ matrix.node }}
     steps:
       - uses: actions/checkout@v3
-      - name: Use Node.js 16.x
+      - name: Setup node ${{ matrix.node }}
         uses: actions/setup-node@v3
         with:
-          node-version: 16.x
+          node-version: ${{ matrix.node }}
       - run: npm ci
       - run: npm run lint
       - run: npm run test -- --coverage
-      - name: Coveralls
+      - name: Coveralls ${{ matrix.node }}
         uses: coverallsapp/github-action@master
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+          github-token: ${{ secrets.github_token }}
+          flag-name: run-${{ matrix.test_number }}
+          parallel: true
+
+  coveralls-upload:
+    needs: units-test
+    runs-on: ubuntu-latest
+    steps:
+    - name: Coveralls Finished
+      uses: coverallsapp/github-action@master
+      with:
+        github-token: ${{ secrets.github_token }}
+        parallel-finished: true
 
   integration:
     needs: units-test
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Use Node.js 16.x
-        uses: actions/setup-node@v3
+      - uses: actions/setup-node@v3
         with:
           node-version: 16.x
       - run: npm ci
-      - name: Generate distributed action
+      - name: Compile action
         run: npm run compile
-      - name: Test generated action
+      - name: Run action
         uses: ./
         with:
           milliseconds: 1000
