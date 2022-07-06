@@ -4,11 +4,14 @@
   "description": "Github Action to export the rules from the website of the game Magic: The Gathering",
   "main": "src/index.js",
   "scripts": {
-    "lint": "eslint .",
-    "compile": "ncc build src/index.js -o dist --source-map --license licenses.txt",
-    "test": "jest src",
+    "build": "tsc",
+    "format": "prettier --write '**/*.ts'",
+    "format-check": "prettier --check '**/*.ts'",
+    "lint": "eslint src/**/*.ts",
+    "package": "ncc build --source-map --license licenses.txt",
+    "test": "jest",
     "coveralls": "cat ./coverage/lcov.info | node node_modules/.bin/coveralls",
-    "all": "npm run lint && npm run test"
+    "all": "npm run build && npm run format && npm run lint && npm test"    
   },
   "repository": {
     "type": "git",
@@ -17,7 +20,7 @@
   "keywords": [
     "GitHub",
     "Actions",
-    "JavaScript"
+    "TypeScript"
   ],
   "author": "Kevin Robayna",
   "license": "MIT",
@@ -35,6 +38,14 @@
     "@vercel/ncc": "^0.34.0",
     "coveralls": "^3.1.1",
     "eslint": "^8.19.0",
-    "jest": "^28.1.1"
+    "jest": "^28.1.1",
+    "@types/node": "^18.0.3",
+    "@typescript-eslint/parser": "^5.30.5",
+    "eslint-plugin-github": "^4.3.6",
+    "eslint-plugin-jest": "^26.5.3",
+    "js-yaml": "^4.1.0",
+    "prettier": "2.7.1",
+    "ts-jest": "^28.0.5",
+    "typescript": "^4.7.4"
   }
 }
