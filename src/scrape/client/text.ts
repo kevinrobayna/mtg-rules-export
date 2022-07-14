@@ -1,7 +1,7 @@
 import * as core from '@actions/core'
 import axios from 'axios'
 
-async function getRulesTxt(url: string): Promise<string> {
+export default async function getRulesText(url: string): Promise<string> {
   try {
     core.info(`Fetching rules url from ${url}...`)
     const {data, status} = await axios.get(url)
@@ -11,9 +11,4 @@ async function getRulesTxt(url: string): Promise<string> {
     core.error(`unexpected error: ${error}`)
     throw new Error(`Could not load MTG Rules`)
   }
-}
-
-export default async function getRulesText(url: string): Promise<string> {
-  const rules = await getRulesTxt(url)
-  return rules
 }
