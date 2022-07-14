@@ -1,6 +1,6 @@
 import * as core from '@actions/core'
-import * as cheerio from 'cheerio'
 import axios from 'axios'
+import * as cheerio from 'cheerio'
 
 export const RULES_URI = 'https://magic.wizards.com/en/rules/'
 
@@ -11,13 +11,8 @@ async function getRulesWebsite(): Promise<string> {
     core.info(`Requested rules url ${RULES_URI}... status=${status}`)
     return data
   } catch (error) {
-    if (axios.isAxiosError(error)) {
-      core.info(`error message: ${error.message}`)
-      throw error
-    } else {
-      core.info(`unexpected error: ${error}`)
-      throw new Error(`Could not load MTG Rules website`)
-    }
+    core.error(`unexpected error: ${error}`)
+    throw new Error(`Could not load MTG Rules website`)
   }
 }
 
@@ -38,6 +33,7 @@ async function scrapeRulesWebsite(): Promise<string> {
 export async function getRulesUrl(): Promise<string> {
   const rules_uri = await scrapeRulesWebsite()
   if (rules_uri == null) {
+    core.error(`Could not find any rules url on website`)
     throw new Error('There was no link to the rules')
   }
   core.setOutput('rules_uri', rules_uri)
