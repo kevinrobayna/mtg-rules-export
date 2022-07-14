@@ -7,10 +7,8 @@ export async function run(): Promise<void> {
     const url: string = await getRulesUrl()
     core.info(`Got url: ${url}`)
   } catch (error) {
-    if (error instanceof Error) {
-      core.setFailed(error.message)
-      throw error
-    }
+    core.setFailed(`unexpected error: ${error}`)
+    throw new Error(`unexpected error: ${error}`)
   }
 }
 

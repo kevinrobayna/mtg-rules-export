@@ -1,6 +1,5 @@
 import {describe, expect, it, jest} from '@jest/globals'
 import axios from 'axios'
-import * as fs from 'fs'
 
 import {getRulesUrl, RULES_URI} from '../../src/scrape/rules'
 
@@ -12,7 +11,15 @@ describe('getRulesUrl', () => {
     // given a copy of the real mtg website
     mockAxios.get.mockResolvedValue({
       status: 200,
-      data: fs.readFileSync('./tests/rules.html', 'utf8')
+      data: `
+      <html>
+        <head></head>
+        <body>
+          <p style="opacity: 1;"><a class="cta" href="https://media.wizards.com/2022/downloads/MagicCompRules 20220610.docx"><span class="txt">DOCX</span></a></p>
+          <p style="opacity: 1;"><a class="cta" href="https://media.wizards.com/2022/downloads/MagicCompRules 20220610.pdf" target="_blank"><span class="txt">PDF</span> </a></p>
+          <p style="opacity: 1;"><span class="txt"><a class="cta" href="https://media.wizards.com/2022/downloads/MagicCompRules 20220610.txt" target="_blank"><span class="txt">TXT</span></a></span></p>
+        </body>
+      </html>`
     })
 
     // when we try to get the rules url
