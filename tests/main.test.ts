@@ -1,7 +1,7 @@
 import * as process from 'process'
 import * as cp from 'child_process'
 import * as path from 'path'
-import {expect, describe, it} from '@jest/globals'
+import {describe, it} from '@jest/globals'
 
 import {run} from '../src/main'
 
