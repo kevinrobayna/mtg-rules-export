@@ -1,7 +1,7 @@
 import {describe, expect, it, jest} from '@jest/globals'
 import axios from 'axios'
 
-import {getRulesUrl, RULES_URI} from '../../src/scrape/rules'
+import getRulesUrl, {RULES_URI} from '../../../src/scrape/client/url'
 
 jest.mock('axios')
 const mockAxios = axios as jest.Mocked<typeof axios>
