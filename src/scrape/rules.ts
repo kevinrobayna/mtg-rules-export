@@ -1,5 +1,5 @@
-import getRulesUrl from '../../src/scrape/client/url'
-import getRulesText from '../../src/scrape/client/text'
+import getRulesText from './client/text'
+import getRulesUrl from './client/url'
 
 export default async function getRules(): Promise<string> {
   const rules_uri = await getRulesUrl()
