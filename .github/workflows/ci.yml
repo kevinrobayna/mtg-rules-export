@@ -45,7 +45,6 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         SONAR_TOKEN: ${{ secrets. SONARCLOUD_TOKEN }}
-        sonar.projectKey=kevinrobayna_mtg-rules-export
       with:
         args: >
           -Dsonar.organization=kevinrobayna
