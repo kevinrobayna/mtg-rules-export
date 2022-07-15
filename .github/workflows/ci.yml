@@ -46,6 +46,8 @@ jobs:
             -Dsonar.projectKey=kevinrobayna_mtg-rules-export
             -Dsonar.javascript.lcov.reportPaths=./coverage/lcov.info
             -Dsonar.scm.provider=git
+            -Dsonar.sources=./src,./tests
+            -Dsonar.sourceEncoding=UTF-8
 
   coveralls-upload:
     needs: units-test
