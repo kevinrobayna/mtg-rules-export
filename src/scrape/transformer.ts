@@ -18,15 +18,16 @@ function getEffectiveDate(rules_txt: string[]): string {
 }
 
 function formatRules(txt: string): string[] {
-  const cleanedUpRules = txt
-    .replace(/“/g, '"')
-    .replace(/”/g, '"')
-    .replace(/’/g, "'")
-    .replace(/‘/g, "'")
-    .replace(/—/g, '-')
-    // Replaces empty lines before effective date comment
-    // check https://regex101.com for more info
-    .replace(/\n\s{4,}(\w)/g, ' $1')
-
-  return cleanedUpRules.split('\n')
+  return (
+    txt
+      .replace(/“/g, '"')
+      .replace(/”/g, '"')
+      .replace(/’/g, "'")
+      .replace(/‘/g, "'")
+      .replace(/—/g, '-')
+      // Replaces empty lines before effective date comment
+      // check https://regex101.com for more info
+      .replace(/\n\s{4,}(\w)/g, ' $1')
+      .split('\n')
+  )
 }
