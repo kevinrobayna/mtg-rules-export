@@ -13,7 +13,10 @@ export default function rulesToJson(rules_txt: string): Rules {
 }
 
 function getEffectiveDate(rules_txt: string[]): string {
-  const line: string = rules_txt.find(it => it.includes(EFFECTIVE_DATE_TXT)) || ''
+  const line = rules_txt.find(it => it.includes(EFFECTIVE_DATE_TXT))
+  if (line === undefined) {
+    throw new TypeError('The value was promised to always be there!')
+  }
   return line.replace(EFFECTIVE_DATE_TXT, '').replace('.', '').trim()
 }
 

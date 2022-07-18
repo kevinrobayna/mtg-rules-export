@@ -8,4 +8,10 @@ describe('rulesToJson', () => {
   it('should return effective date of rules', () => {
     expect(rulesToJson(COMPLETE_RULES).effective_date).toBe('July 8, 2022')
   })
+
+  it('should return type error if no effective date was found', () => {
+    expect(rulesToJson('').effective_date).toThrowError(
+      new TypeError('The value was promised to always be there!')
+    )
+  })
 })
