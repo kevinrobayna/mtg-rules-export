@@ -1,6 +1,6 @@
 # Magic: The Gathering rules export
 
-  [![CI status](https://github.com/kevinrobayna/mtg-rules-export/actions?branch=main)](https://github.com/kevinrobayna/mtg-rules-export/workflows/ci/badge.svg?branch=main)
+  [![CI status](https://github.com/kevinrobayna/mtg-rules-export/workflows/ci/badge.svg?branch=main)](https://github.com/kevinrobayna/mtg-rules-export/actions?branch=main)
   [![Coverage Status](https://coveralls.io/repos/github/kevinrobayna/mtg-rules-export/badge.svg?branch=main)](https://coveralls.io/github/kevinrobayna/mtg-rules-export?branch=main)
   [![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=kevinrobayna_mtg-rules-export&metric=duplicated_lines_density)](https://sonarcloud.io/summary/new_code?id=kevinrobayna_mtg-rules-export)
   [![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=kevinrobayna_mtg-rules-export&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=kevinrobayna_mtg-rules-export)
