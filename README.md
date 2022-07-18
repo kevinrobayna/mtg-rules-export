@@ -23,7 +23,7 @@ npm install
 
 Run the tests :heavy_check_mark:
 
-```bash
+```shell
 $ npm run all
 
 > mtg-rules-export@1.0.0 all
