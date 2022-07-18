@@ -1,5 +1,5 @@
 {
-  "name": "javascript-action",
+  "name": "mtg-rules-export",
   "version": "1.0.0",
   "description": "Github Action to export the rules from the website of the game Magic: The Gathering",
   "main": "lib/main.js",
