@@ -24,12 +24,27 @@ npm install
 Run the tests :heavy_check_mark:
 
 ```bash
-$ npm test
+$ npm run all
 
- PASS  ./index.test.js
-  ✓ throws invalid number (3ms)
-  ✓ wait 500 ms (504ms)
-  ✓ test runs (95ms)
+> mtg-rules-export@1.0.0 all
+> npm run build && npm run format && npm run lint && npm test
+
+> mtg-rules-export@1.0.0 build
+> tsc
+
+> mtg-rules-export@1.0.0 format
+> prettier --write '**/*.ts'
+
+> mtg-rules-export@1.0.0 lint
+> eslint src/**/*.ts
+
+> mtg-rules-export@1.0.0 test
+> jest test
+
+ PASS  tests/main.test.ts
+  Github Action
+    ✓ should run without any errors as process (684 ms)
+    ✓ should run without any errors (538 ms)
 ...
 ```
 
