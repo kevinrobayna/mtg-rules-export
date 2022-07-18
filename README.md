@@ -1,10 +1,7 @@
 # Magic: The Gathering rules export
 
-<p align="center">
-  <a href="https://github.com/kevinrobayna/mtg-rules-export/actions?branch=main"><img alt="CI status" src="https://github.com/kevinrobayna/mtg-rules-export/workflows/ci/badge.svg?branch=main"></a>
-  <a href='https://coveralls.io/github/kevinrobayna/mtg-rules-export?branch=main'><img src='https://coveralls.io/repos/github/kevinrobayna/mtg-rules-export/badge.svg?branch=main' alt='Coverage Status' /></a>
-</p>
-
+  [![CI status](https://github.com/kevinrobayna/mtg-rules-export/actions?branch=main)](https://github.com/kevinrobayna/mtg-rules-export/workflows/ci/badge.svg?branch=main)
+  [![Coverage Status](https://coveralls.io/repos/github/kevinrobayna/mtg-rules-export/badge.svg?branch=main)](https://coveralls.io/github/kevinrobayna/mtg-rules-export?branch=main)
   [![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=kevinrobayna_mtg-rules-export&metric=duplicated_lines_density)](https://sonarcloud.io/summary/new_code?id=kevinrobayna_mtg-rules-export)
   [![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=kevinrobayna_mtg-rules-export&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=kevinrobayna_mtg-rules-export)
   [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=kevinrobayna_mtg-rules-export&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=kevinrobayna_mtg-rules-export)
