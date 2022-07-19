@@ -21,25 +21,21 @@ export default function rulesToJson(rules_txt: string): Rules {
 function getEffectiveDate(rules_txt: string[]): string {
   const effective_date = rules_txt
     .filter(line => line.match(EFFECTIVE_DATE_TXT))
-    .map(line => {
-      line.replace(EFFECTIVE_DATE_TXT, '').replace('.', '').trim()
-    })
+    .map(line => line.replace(EFFECTIVE_DATE_TXT, ''))
+    .map(line => line.replace('.', ''))
+    .map(line => line.trim())
 
-  if (effective_date === undefined) {
+  if ((effective_date || []).length !== 1) {
     throw new TypeError('The value was promised to always be there!')
   }
-  return '2020-01-01'
+  return effective_date[0]
 }
 
 function formatRules(txt: string): string[] {
-  return (
-    txt
-      .replace(DOUBLE_QUOTEMARKS, '"')
-      .replace(SINGLE_QUOTEMARKS, "'")
-      .replace(DOUBLE_DASH, '-')
-      // Replaces empty lines before effective date comment
-      // check https://regex101.com for more info
-      .replace(MULTIPLE_EMPTY_LINES, ' $1')
-      .split('\n')
-  )
+  return txt
+    .replace(DOUBLE_QUOTEMARKS, '"')
+    .replace(SINGLE_QUOTEMARKS, "'")
+    .replace(DOUBLE_DASH, '-')
+    .replace(MULTIPLE_EMPTY_LINES, ' $1')
+    .split('\n')
 }
