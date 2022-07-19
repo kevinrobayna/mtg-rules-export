@@ -1,8 +1,14 @@
+import {
+  DOUBLE_DASH,
+  DOUBLE_QUOTEMARKS,
+  EFFECTIVE_DATE_TXT,
+  MULTIPLE_EMPTY_LINES,
+  SINGLE_QUOTEMARKS
+} from './regex'
+
 interface Rules {
   effective_date: string
 }
-
-const EFFECTIVE_DATE_TXT = 'These rules are effective as of'
 
 export default function rulesToJson(rules_txt: string): Rules {
   const rules_lines = formatRules(rules_txt)
@@ -13,24 +19,27 @@ export default function rulesToJson(rules_txt: string): Rules {
 }
 
 function getEffectiveDate(rules_txt: string[]): string {
-  const line = rules_txt.find(it => it.includes(EFFECTIVE_DATE_TXT))
-  if (line === undefined) {
+  const effective_date = rules_txt
+    .filter(line => line.match(EFFECTIVE_DATE_TXT))
+    .map(line => {
+      line.replace(EFFECTIVE_DATE_TXT, '').replace('.', '').trim()
+    })
+
+  if (effective_date === undefined) {
     throw new TypeError('The value was promised to always be there!')
   }
-  return line.replace(EFFECTIVE_DATE_TXT, '').replace('.', '').trim()
+  return '2020-01-01'
 }
 
 function formatRules(txt: string): string[] {
   return (
     txt
-      .replace(/“/g, '"')
-      .replace(/”/g, '"')
-      .replace(/’/g, "'")
-      .replace(/‘/g, "'")
-      .replace(/—/g, '-')
+      .replace(DOUBLE_QUOTEMARKS, '"')
+      .replace(SINGLE_QUOTEMARKS, "'")
+      .replace(DOUBLE_DASH, '-')
       // Replaces empty lines before effective date comment
       // check https://regex101.com for more info
-      .replace(/\n\s{4,}(\w)/g, ' $1')
+      .replace(MULTIPLE_EMPTY_LINES, ' $1')
       .split('\n')
   )
 }
