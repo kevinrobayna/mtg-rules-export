@@ -25,7 +25,7 @@ function getEffectiveDate(rules_txt: string[]): string {
     .map(line => line.replace('.', ''))
     .map(line => line.trim())
 
-  if ((effective_date || []).length !== 1) {
+  if (effective_date.length !== 1) {
     throw new TypeError('The value was promised to always be there!')
   }
   return effective_date[0]
