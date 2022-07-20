@@ -10,7 +10,7 @@ describe('rulesToJson', () => {
   })
 
   it('should return type error if no effective date was found', () => {
-    expect(rulesToJson('').effective_date).toThrowError(
+    expect(() => rulesToJson('')).toThrowError(
       new TypeError('The value was promised to always be there!')
     )
   })
